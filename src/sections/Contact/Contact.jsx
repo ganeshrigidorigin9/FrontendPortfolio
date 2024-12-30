@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import styles from './ContactStyles.module.css';
 
 function Contact() {
@@ -8,37 +8,37 @@ function Contact() {
   const [message, setMessage] = useState('');
 
   // handle form submission
-  async function handleSubmit(event) {
-    event.preventDefault();
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
 
-    const formData = { name, email, message }; // create the form data object
+  //   const formData = { name, email, message }; // create the form data object
 
-    try {
-      const response = await axios.post('http://localhost:9000/send', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  //   try {
+  //     const response = await axios.post('http://localhost:9000/send', formData, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     });
 
-      if (response.data.success) {
-        alert('Email sent successfully!');
-        // Clear the form
-        setName('');
-        setEmail('');
-        setMessage('');
-      } else {
-        alert('Failed to send email.');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Error occurred. Please try again later.');
-    }
-  }
+  //     if (response.data.success) {
+  //       alert('Email sent successfully!');
+  //       // Clear the form
+  //       setName('');
+  //       setEmail('');
+  //       setMessage('');
+  //     } else {
+  //       alert('Failed to send email.');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error sending email:', error);
+  //     alert('Error occurred. Please try again later.');
+  //   }
+  // }
 
   return (
     <section id="contact" className={styles.container}>
       <h1 className="sectionTitle">Contact</h1>
-      <form onSubmit={handleSubmit}>
+       <form>  
         <div className="formGroup">
           <label htmlFor="name" hidden>
             Name
@@ -49,7 +49,7 @@ function Contact() {
             id="name"
             placeholder="Name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            //onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -63,7 +63,7 @@ function Contact() {
             id="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            //onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -76,7 +76,7 @@ function Contact() {
             id="message"
             placeholder="Message"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            //onChange={(e) => setMessage(e.target.value)}
             required></textarea>
         </div>
         <input className="btn" type="submit" value="Submit" />
